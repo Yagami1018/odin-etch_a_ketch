@@ -27,14 +27,14 @@ const playEtchAKetch = () => {
             div.classList.add('square');
             div.style.width = `${960 / size}px`;
             div.style.height = `${960 / size}px`;
-            div.style.backgroundColor = 'hsla(0, 0%, 0%, 0.00)';
+            div.style.backgroundColor = 'rgba(0, 0, 0, 0)';
             let op = 0;
             let hue = Math.floor(Math.random() * 100);
             let saturation = Math.floor(Math.random() * 100);
             let brigth = Math.floor(Math.random() * 100);
             div.addEventListener('mouseenter', () => {
                 op += 0.1;
-                div.style.backgroundColor = `hsla(${hue}, ${saturation}%, ${brigth}%, ${op})`;
+                div.style.backgroundColor = `rgba(${hue}, ${saturation}, ${brigth}, ${op})`;
             });
             row.appendChild(div);
         }
