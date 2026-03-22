@@ -29,9 +29,9 @@ const playEtchAKetch = () => {
             div.style.height = `${960 / size}px`;
             div.style.backgroundColor = 'rgba(0, 0, 0, 0)';
             let op = 0;
-            let hue = Math.floor(Math.random() * 100);
-            let saturation = Math.floor(Math.random() * 100);
-            let brigth = Math.floor(Math.random() * 100);
+            let hue = Math.floor(Math.random() * 101);
+            let saturation = Math.floor(Math.random() * 101);
+            let brigth = Math.floor(Math.random() * 101);
             div.addEventListener('mouseenter', () => {
                 op += 0.1;
                 div.style.backgroundColor = `rgba(${hue}, ${saturation}, ${brigth}, ${op})`;
