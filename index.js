@@ -3,15 +3,23 @@ const gSize = document.getElementById('gSize');
 const subBtn = document.getElementById('subBtn');
 const desiredSize = document.getElementById('desiredSize');
 
-subBtn.addEventListener('click', () => {
+const playEtchAKetch = () => {
     if (container.hasChildNodes()) {
         container.remove();
         container = document.createElement('div');
         container.classList.add('container');
         document.body.insertBefore(container, desiredSize);
     }
-
-    const size = Math.min(gSize.value, 100);
+    let size;
+    if (gSize.value > 100) {
+        globalThis.alert('The max value is 100');
+        size = 100;
+    } else if (gSize.value < 1) {
+        globalThis.alert('The min value is 1');
+        size = 1;
+    } else {
+        size = gSize.value;
+    }
     for (let i = 0; i < size; i++) {
         let row = document.createElement('div');
         for (let j = 0; j < size; j++) {
@@ -32,4 +40,13 @@ subBtn.addEventListener('click', () => {
         }
         container.appendChild(row);
     }
+};
+
+gSize.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+        playEtchAKetch();
+    }
 });
+subBtn.addEventListener('click', playEtchAKetch);
+
+playEtchAKetch();
